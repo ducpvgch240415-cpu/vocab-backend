@@ -1,9 +1,8 @@
-import cookieParser from 'cookie-parser';
+
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from "path";
-import helmet from 'helmet';
-import authRoutes from './api/routes/authRoutes';
+
 import express, { Express, NextFunction, Request, Response } from 'express';
 import mongoose from 'mongoose';
 import routes from './api/routes/vocabRoutes';
@@ -22,8 +21,6 @@ if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
 }
 
-app.use(helmet());
-
 app.use(
   cors({
     origin: frontendUrl,
@@ -36,10 +33,6 @@ app.use(
     limit: '10kb',
   }),
 );
-
-app.use(cookieParser());
-
-app.use('/api/auth', authRoutes);
 
 // Mongoose connection string
 const mongoUri = process.env.MONGODB_URI;
