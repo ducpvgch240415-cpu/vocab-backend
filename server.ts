@@ -41,9 +41,6 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 
-// Keep your existing routes below.
-// app.use('/api/words', wordRoutes);
-
 // Mongoose connection string
 const mongoUri = process.env.MONGODB_URI;
 
