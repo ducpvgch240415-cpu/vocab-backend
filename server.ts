@@ -14,7 +14,7 @@ const app: Express = express();
 const port: number | string = process.env.PORT || 3000;
 
 const frontendUrl =
-  process.env.FRONTEND_URL ?? 'http://localhost:5173';
+  process.env.FRONTEND_URL;
 
 const mongoUri = process.env.MONGODB_URI;
 
