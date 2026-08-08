@@ -1,9 +1,12 @@
+import cookieParser from 'cookie-parser';
+import authRoutes from './api/routes/authRoutes';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express, {Express,NextFunction,Request,Response,} from 'express';
 import mongoose from 'mongoose';
 
 import routes from './api/routes/vocabRoutes';
+
 
 dotenv.config();
 
@@ -14,6 +17,7 @@ const frontendUrl =
   process.env.FRONTEND_URL ?? 'http://localhost:5173';
 
 const mongoUri = process.env.MONGODB_URI;
+
 
 
 if (!mongoUri) {
@@ -49,6 +53,9 @@ app.use(
     limit: '10kb',
   }),
 );
+
+app.use(cookieParser());
+app.use('/api/auth', authRoutes);
 
 // Register API routes
 routes(app);
@@ -93,5 +100,7 @@ async function startServer(): Promise<void> {
     process.exit(1);
   }
 }
+
+
 
 void startServer();
