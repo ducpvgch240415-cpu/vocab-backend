@@ -9,6 +9,7 @@ export const list_all_words = async (_req: any, res: any): Promise<void> => {
   }
 };
 
+
 export const create_a_word = async (req: any, res: any): Promise<void> => {
   try {
     const newWord = new Vocab(req.body);
