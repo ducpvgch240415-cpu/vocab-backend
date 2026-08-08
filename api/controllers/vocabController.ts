@@ -20,6 +20,7 @@ export const create_a_word = async (req: any, res: any): Promise<void> => {
   }
 };
 
+
 export const read_a_word = async (req: any, res: any): Promise<void> => {
   try {
     const word = await Vocab.findById(req.params.wordId);
