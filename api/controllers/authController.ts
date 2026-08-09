@@ -178,7 +178,11 @@ export const logout = (
   _req: Request,
   res: Response
 ): void => {
-  res.clearCookie('token');
+  res.clearCookie('token', {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+  });
 
   res.json({
     message: 'Logged out',
