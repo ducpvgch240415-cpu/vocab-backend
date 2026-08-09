@@ -12,9 +12,11 @@ export const list_all_words = async (_req: any, res: any): Promise<void> => {
 
 export const create_a_word = async (req: any, res: any): Promise<void> => {
   try {
+
     const newWord = new Vocab(req.body);
     const word = await newWord.save();
     res.status(201).json(word);
+    
   } catch (err) {
     res.status(500).send(err);
   }
@@ -58,3 +60,5 @@ export const delete_a_word = async (req: any, res: any): Promise<void> => {
     res.status(500).send(err);
   }
 };
+
+  
