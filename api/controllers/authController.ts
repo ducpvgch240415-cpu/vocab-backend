@@ -62,8 +62,6 @@ if (!GOOGLE_CLIENT_ID) {
   maxAge: 24 * 60 * 60 * 1000,
 });
 
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('Set-Cookie:', res.getHeader('Set-Cookie'));
 
     res.json({
       message: 'Google login successful',
@@ -156,8 +154,6 @@ export const login = async (
   maxAge: 24 * 60 * 60 * 1000,
 });
 
-console.log('NODE_ENV:', process.env.NODE_ENV);
-console.log('Set-Cookie:', res.getHeader('Set-Cookie'));
 
     res.json({
       message: 'Login successful',
